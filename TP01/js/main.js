@@ -31,9 +31,9 @@ const PlaceCarre = (carre) => {
 const CreateCarre = (iteration) =>{
 	let carre = document.createElement("div");
 	carre.style.backgroundColor = "yellow";
-	carre.innerHTML = iteration;
-	carre.style.textAlign = "center";
-	carre.style.verticalAlign = "middle";
+	let text = document.createElement("div");
+	text.innerHTML = iteration;
+	carre.appendChild(text);
 	carre.addEventListener("click", event => {MoveDown()}); 
 	document.body.appendChild(carre);
 	return carre;
@@ -48,6 +48,10 @@ const CoordFinder = (index) =>{
 	carreArray[index].style.width = (size * 2) + "px";
 	carreArray[index].style.height = (size * 2) + "px";
 	carreArray[index].style.borderRadius = size + "px";
+
+	carreArray[index].firstChild.style.paddingTop = (parseInt(carreArray[index].style.height, 10) / 3) + "px";
+	carreArray[index].firstChild.style.paddingLeft = (parseInt(carreArray[index].style.width, 10) / 4) + "px";
+
 	return [x, y, index];
 }
 
