@@ -1,9 +1,15 @@
-var http = require('http');
+const http = require('http');
+const port = 3000;
+const adr = 'localhost';
 
 const server = http.createServer((req, res) =>{
-	console.log("hey, you recieved a request bitch")
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/plain');
+	res.end("Hello world, you sent a request but im too stupid to deal with it atm... Check back later !");
+	console.log('recieved a request and replied to it.');
 })
 
-server.listen(3000, "localhost", () => {
-	console.log("server started")
+server.listen(port, adr, () => {
+  	console.log(`Server started, visit http://${adr}:${port}/ to trigger something cool 8)`);
+
 })
